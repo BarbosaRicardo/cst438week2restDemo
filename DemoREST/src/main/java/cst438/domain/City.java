@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 @Entity
-@Table(name="city", schema="world")
+@Table(name="city")
 public class City {
 	
 	@Id
@@ -17,6 +17,8 @@ public class City {
 	private String district;
 	private int population;
 	
+	// Transient marks extra field in an Entity class
+	//  that is not read/written to the database.
 	@Transient
 	CityWeather weather;
 	

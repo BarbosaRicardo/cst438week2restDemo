@@ -26,6 +26,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import java.util.ArrayList;
 import java.util.List;
 
+// class must be annotated as WebMvcTest,  not SpringBootTest
 @WebMvcTest(CityRestController.class)
 public class CityRestControllerTest {
 	
@@ -73,8 +74,7 @@ public class CityRestControllerTest {
 		// it will return a list of cities.
 		given(cityRepository.findByName("TestCity")).willReturn(cities);
 
-		// perform the test by making simulated HTTP post 
-		//  URL of "/city/TestCity"
+		// perform the test by making simulated HTTP get using URL of "/city/TestCity"
 		MockHttpServletResponse response = mvc.perform(get("/city/TestCity"))
 				.andReturn().getResponse();
 				
